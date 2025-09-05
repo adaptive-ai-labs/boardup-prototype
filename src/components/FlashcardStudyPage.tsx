@@ -1,5 +1,14 @@
+'use client'
 // React core imports
 import React, { useState, useEffect } from 'react';
+
+// Web Speech API global types
+declare global {
+  interface Window {
+    SpeechRecognition: any;
+    webkitSpeechRecognition: any;
+  }
+}
 
 // Icon imports from Lucide React
 import { ArrowLeft, RotateCcw, ChevronLeft, ChevronRight, Star, Volume2, VolumeX, CheckCircle, X, Shuffle, BookOpen, Trophy } from 'lucide-react';
@@ -157,7 +166,7 @@ export const FlashcardStudyPage: React.FC<FlashcardStudyPageProps> = ({
   const [isListening, setIsListening] = useState(false);
   
   /** Web Speech API recognition instance for voice commands */
-  const [recognition, setRecognition] = useState<SpeechRecognition | null>(null);
+  const [recognition, setRecognition] = useState<any | null>(null);
 
   const currentCard = flashcards[cardOrder[currentCardIndex]];
   const totalCards = flashcards.length;
@@ -403,12 +412,12 @@ export const FlashcardStudyPage: React.FC<FlashcardStudyPageProps> = ({
         setIsListening(true);
       };
 
-      newRecognition.onresult = (event: SpeechRecognitionEvent) => {
+      newRecognition.onresult = (event: any) => {
         const command = event.results[event.results.length - 1][0].transcript.toLowerCase().trim();
         handleVoiceCommand(command);
       };
 
-      newRecognition.onerror = (event: SpeechRecognitionErrorEvent) => {
+      newRecognition.onerror = (event: any) => {
         console.log('Speech recognition error:', event.error);
         // Restart recognition after a brief delay if it stops due to error
         setTimeout(() => {

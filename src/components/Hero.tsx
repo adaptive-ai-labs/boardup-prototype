@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { Brain, Target, TrendingUp, Zap } from 'lucide-react';
 

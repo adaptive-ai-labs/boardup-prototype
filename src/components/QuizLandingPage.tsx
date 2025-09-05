@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { ArrowLeft, Brain, Clock, Target, Trophy, Play, BookOpen, Wrench, PenTool, CheckCircle, X } from 'lucide-react';
 import { Logo } from './Logo';
@@ -8,10 +9,10 @@ interface QuizLandingPageProps {
 }
 
 export const QuizLandingPage: React.FC<QuizLandingPageProps> = ({ onBackToDashboard }) => {
-  const [selectedSection, setSelectedSection] = useState<string | null>(null);
+  const [selectedSection, setSelectedSection] = useState<{sectionTitle: string, subsectionTitle: string} | null>(null);
   const [currentView, setCurrentView] = useState<'main' | 'subtopics'>('main');
   const [showQuizTypeModal, setShowQuizTypeModal] = useState(false);
-  const [selectedSubsection, setSelectedSubsection] = useState<{ id: string; title: string; topics: string[] } | null>(null);
+  const [selectedSubsection, setSelectedSubsection] = useState<{ id: string; title: string; topics: string[]; questionCount?: number; difficulty?: string } | null>(null);
 
   const quizSections = [
     {
@@ -421,7 +422,7 @@ export const QuizLandingPage: React.FC<QuizLandingPageProps> = ({ onBackToDashbo
                       </button>
                       
                       <button
-                        onClick={() => handleStartQuiz(section.id, subsection.id, selectedQuizType || 'practice')}
+                        onClick={() => handleStartQuiz(section.id, subsection.id)}
                         className="w-full flex items-center justify-center space-x-2 px-4 py-2 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 hover:border-gray-400 hover:bg-gray-50"
                       >
                         <Target className="h-4 w-4" />

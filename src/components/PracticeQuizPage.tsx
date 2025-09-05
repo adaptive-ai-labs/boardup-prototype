@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Clock, Target, CheckCircle, X, RotateCcw, Trophy, BookOpen, Volume2, VolumeX, Zap, Star, Sparkles } from 'lucide-react';
 import { Logo } from './Logo';

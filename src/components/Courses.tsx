@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { Building, Wrench, Zap, Calculator, Heart, GraduationCap, Shield, FlaskConical, HardHat } from 'lucide-react';
 

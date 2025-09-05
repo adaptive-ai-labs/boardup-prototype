@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { Mail, Phone } from 'lucide-react';
 import { Logo } from './Logo';

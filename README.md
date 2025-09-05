@@ -1,6 +1,6 @@
 # BoardUp - Architectural Licensure Exam Preparation Platform
 
-A comprehensive React-based web application designed to help architecture students prepare for their licensure examinations through interactive quizzes, flashcards, and study resources.
+A comprehensive Next.js application designed to help architecture students prepare for their licensure examinations through interactive quizzes, flashcards, and study resources.
 
 ## 🏗️ Project Overview
 
@@ -13,19 +13,19 @@ BoardUp is a specialized educational platform focused on architectural exam prep
 
 ## 🚀 Tech Stack
 
+- **Framework**: Next.js 14 with App Router
 - **Frontend**: React 18 with TypeScript
-- **Build Tool**: Vite
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
 - **State Management**: React useState (local state)
-- **Routing**: Custom page-based routing system
+- **Routing**: Next.js App Router with file-based routing
 
 ## 📦 Installation & Setup
 
 ```bash
 # Clone the repository
 git clone [repository-url]
-cd boardup
+cd boardup-prototype
 
 # Install dependencies
 npm install
@@ -36,28 +36,32 @@ npm run dev
 # Build for production
 npm run build
 
+# Start production server
+npm run start
+
 # Run linting
 npm run lint
-
-# Preview production build
-npm run preview
 ```
 
 ## 📁 Project Structure
 
 ```
 src/
-├── components/           # React components
+├── app/                 # Next.js App Router pages
+│   ├── globals.css      # Global styles
+│   ├── layout.tsx       # Root layout
+│   ├── page.tsx         # Home page
+│   ├── register/        # Registration page
+│   ├── setup/           # Account setup page
+│   ├── dashboard/       # User dashboard
+│   └── contact/         # Contact page
+├── components/          # Reusable React components
 │   ├── auth/            # Authentication components
 │   ├── dashboard/       # Dashboard components
 │   ├── learning/        # Learning feature components
 │   ├── resources/       # Resource library components
-│   ├── marketing/       # Landing page components
-│   └── shared/          # Reusable components
-├── types/               # TypeScript type definitions
-├── utils/               # Utility functions
-├── hooks/               # Custom React hooks
-└── assets/              # Static assets
+│   └── marketing/       # Landing page components
+└── public/              # Static assets
 ```
 
 ## 🎯 Key Features
@@ -95,11 +99,12 @@ src/
 
 ## 🔧 Component Architecture
 
-### Page Components
-- `App.tsx` - Main application router and state manager
-- `AccountLandingPage.tsx` - User dashboard after login
-- `RegisterPage.tsx` - User registration with form validation
-- `AccountSetupPage.tsx` - Profile setup after registration
+### Page Components (Next.js App Router)
+- `src/app/page.tsx` - Landing page
+- `src/app/register/page.tsx` - User registration page
+- `src/app/setup/page.tsx` - Account setup page
+- `src/app/dashboard/page.tsx` - User dashboard
+- `src/app/contact/page.tsx` - Contact form page
 
 ### Learning Components
 - `QuizLandingPage.tsx` - Quiz section main interface
@@ -158,24 +163,31 @@ The application is fully responsive with breakpoints:
 Currently using React's built-in state management:
 - `useState` for local component state
 - Props for data passing between components
-- Future: Consider Redux Toolkit for complex state
+- Future: Consider Zustand or React Query for complex state
 
 ### Performance Considerations
-- Lazy loading for route components
-- Image optimization
-- Bundle size monitoring
-- Efficient re-renders
+- Next.js automatic code splitting
+- Server-side rendering (SSR) ready
+- Image optimization with Next.js Image component
+- Bundle size monitoring with built-in analyzer
 
 ## 🚀 Deployment
 
 The application can be deployed to:
-- Vercel (recommended for React apps)
-- Netlify
-- GitHub Pages
-- Traditional hosting with static files
+- **Vercel** (recommended for Next.js apps) - Zero configuration deployment
+- **Netlify** with Next.js build plugin
+- **Railway** or **DigitalOcean** for self-hosted deployments
+- Any Node.js hosting provider
 
 Build command: `npm run build`
-Output directory: `dist/`
+Start command: `npm run start`
+Output directory: `.next/`
+
+### Quick Deploy to Vercel
+```bash
+npm install -g vercel
+vercel --prod
+```
 
 ## 🤝 Contributing
 

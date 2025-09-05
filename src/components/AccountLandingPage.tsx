@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { Camera, Calendar, Clock, User } from 'lucide-react';
 import { Logo } from './Logo';
@@ -34,7 +35,7 @@ export const AccountLandingPage: React.FC<AccountLandingPageProps> = ({ onLogout
     return daysLeft;
   };
 
-  calculateDaysLeft(userData.examDate);
+  const daysLeft = calculateDaysLeft(userData.examDate);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];

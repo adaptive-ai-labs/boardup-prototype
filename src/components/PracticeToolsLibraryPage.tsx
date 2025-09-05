@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { ArrowLeft, Target, Brain, FileText, Star, Calendar, ChevronDown, Trophy } from 'lucide-react';
 import { Logo } from './Logo';

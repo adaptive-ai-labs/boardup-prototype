@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { BookOpen, BarChart3, Users, Clock, Award, Shield } from 'lucide-react';
 

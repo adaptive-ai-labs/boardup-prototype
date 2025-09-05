@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { BookOpen, Building, Wrench, PenTool, CheckCircle, ChevronDown, ChevronRight, X, BookOpenCheck, Target, Headphones, CreditCard } from 'lucide-react';
 
